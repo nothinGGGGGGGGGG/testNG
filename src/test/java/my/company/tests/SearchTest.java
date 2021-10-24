@@ -3,9 +3,10 @@ package my.company.tests;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.qameta.allure.Issue;
 import my.company.steps.WebDriverSteps;
-import org.junit.Before;
-import org.junit.Test;
+
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 /**
  * @author Dmitry Baev charlie@yandex-team.ru
@@ -15,7 +16,7 @@ public class SearchTest {
 
     private WebDriverSteps steps;
 
-    @Before
+    @BeforeTest
     public void setUp() throws Exception {
         ChromeDriverManager.getInstance().setup();
         steps = new WebDriverSteps(new ChromeDriver());

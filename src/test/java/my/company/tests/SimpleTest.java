@@ -3,7 +3,9 @@ package my.company.tests;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -11,9 +13,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.fail;
+import static org.testng.Assert.fail;
+
 
 /**
  * @author Dmitry Baev charlie@yandex-team.ru
@@ -23,12 +24,12 @@ public class SimpleTest {
 
     @Test
     public void simpleTest() throws Exception {
-        assertThat(2, is(2));
+        Assert.assertEquals(2, 2);
     }
 
     @Step
     public void checkThat2is2() {
-        assertThat(2, is(2));
+        Assert.assertEquals(2, 2);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class SimpleTest {
 
     @Test
     public void simpleTestWithAttachments() throws Exception {
-        assertThat(2, is(2));
+        Assert.assertEquals(2, 2);
         makeAttach();
     }
 

@@ -1,23 +1,15 @@
 package my.company.tests;
 
-import com.tngtech.java.junit.dataprovider.DataProvider;
-import com.tngtech.java.junit.dataprovider.DataProviderRunner;
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import io.qameta.allure.junit4.DisplayName;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
-/**
- * eroshenkoam
- * 01.05.17
- */
-@DisplayName("Data provider test")
-@RunWith(DataProviderRunner.class)
+import java.util.zip.DataFormatException;
+
 public class DataProviderTest {
 
-    @DataProvider
+    @DataProvider (name = "Test1")
     public static Object[][] dataProviderAdd() {
         return new Object[][]{
                 {0, 0, 0},
@@ -25,11 +17,8 @@ public class DataProviderTest {
         };
     }
 
-    @Test
-    @UseDataProvider("dataProviderAdd")
+    @Test (dataProvider = "Test1")
     public void testAdd(int first, int second, long result) {
-        assertEquals(first + second, result);
+        Assert.assertEquals(first + second, result);
     }
-
-
 }
